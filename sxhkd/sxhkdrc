@@ -1,0 +1,3 @@
+# negative -w arg to account for a border width (default: 100%)
+ctrl + space
+    tdrop -ma -w -4 -h 100% -w 100% kitty

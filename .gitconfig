@@ -1,0 +1,7 @@
+[user]
+	email = mateuszpiorowski@gmail.com
+	name = mateuszpiorowski
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = false
