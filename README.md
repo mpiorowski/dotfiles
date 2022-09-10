@@ -1,4 +1,5 @@
 ## Dotfiles
+My personal dotfiles setup, includes:
 - nvim
 - kitty
 - fish
