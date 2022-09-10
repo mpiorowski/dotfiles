@@ -5,3 +5,9 @@
 - github
 - tdrop
 - sxhkd
+
+## Instalation
+
+```
+sh install.sh
+```
