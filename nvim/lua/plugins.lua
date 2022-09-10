@@ -32,8 +32,6 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  -- indent
-  use "lukas-reineke/indent-blankline.nvim"
   -- telescope
   use {
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
