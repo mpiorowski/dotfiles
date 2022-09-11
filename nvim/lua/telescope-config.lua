@@ -13,7 +13,8 @@ telescope.setup{
     hijack_netrw = true,
     mappings = {
       n = {
-        ['q'] = actions.close
+        ['q'] = actions.close,
+        ["<S-Tab>"] = actions.send_selected_to_qflist + actions.open_qflist,
       }
     },
   },

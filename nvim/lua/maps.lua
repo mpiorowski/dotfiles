@@ -33,3 +33,6 @@ keymap.set('n', '<leader>Y', 'gg"+yG')
 keymap.set('v', '<A-j>', ':m\'>+1<cr>gv=gv')
 keymap.set('v', '<A-k>', ':m\'<-2<cr>gv=gv')
 
+-- quickfix next/prev
+keymap.set('n', '<A-j>', ':cnext<cr>')
+keymap.set('n', '<A-k>', ':cprev<cr>')
