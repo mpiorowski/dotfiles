@@ -18,19 +18,24 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- require'lspconfig'.eslint.setup{
---   on_attach = function(client, bufnr)
---     client.server_capabilities.documentFormattingProvider = true
---     if client.server_capabilities.documentFormattingProvider then
---         -- vim.api.nvim_create_autocmd("BufWritePost", { callback = function() vim.lsp.buf.format({ async = true }) end })
---       vim.api.nvim_create_autocmd("BufWritePre", {
---         command =  "EslintFixAll"
---       })
---     end
---   end,
---   capabilities = capabilities,
---   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte" },
--- }
+require'lspconfig'.eslint.setup{
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      pattern = { '*.tsx', '*.ts', '*.svelte' },
+      command = 'silent! EslintFixAll',
+      group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
+    })
+   --  client.server_capabilities.documentFormattingProvider = true
+   --  if client.server_capabilities.documentFormattingProvider then
+   --      -- vim.api.nvim_create_autocmd("BufWritePost", { callback = function() vim.lsp.buf.format({ async = true }) end })
+   --    vim.api.nvim_create_autocmd("BufWritePre", {
+   --      command =  "EslintFixAll"
+   --    })
+   --  end
+  end,
+  capabilities = capabilities,
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte" },
+}
 require'lspconfig'.tsserver.setup{
   on_attach = on_attach,
   capabilities = capabilities,

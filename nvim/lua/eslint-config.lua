@@ -4,7 +4,7 @@ null_ls.setup({
   on_attach = function(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
       -- format on save
-      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }")
+      vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.format { async = true }")
     end
   end,
   sources = {
