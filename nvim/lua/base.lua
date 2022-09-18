@@ -8,6 +8,7 @@ vim.wo.number = true
 
 vim.opt.list = true
 
+vim.opt.swapfile = false
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
@@ -38,7 +39,7 @@ vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.formatoptions:append { 'r' }
 
 -- Copy from clipboard
--- vim.opt.clipboard:append { 'unnamedplus' }
+vim.opt.clipboard:append { 'unnamedplus' }
 
 -- highlights.lua
 vim.opt.cursorline = true

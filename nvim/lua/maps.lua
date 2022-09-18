@@ -10,7 +10,7 @@ keymap.set('n', '+', '<C-a>')
 keymap.set('n', '-', '<C-x>')
 
 -- Delete word backwards and forward without yank
-keymap.set('n', 'dw', 'vb"_d')
+-- keymap.set('n', 'dw', 'vb"_d')
 keymap.set('n', 'cd', '"_c$')
 
 -- go word backwards
