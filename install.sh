@@ -2,6 +2,7 @@
 yay
 
 yay brave-bin
+yay go
 
 yay fish # 18
 chsh -s /usr/bin/fish
