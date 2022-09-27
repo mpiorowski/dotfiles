@@ -5,8 +5,8 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   -- Mappings.
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, bufopts)
-  -- vim.keymap.set('n', '<C-j>', vim.lsp.buf.definition, bufopts)
+  -- vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<A-f>',function() vim.lsp.buf.format { async = true } end, bufopts)
@@ -18,6 +18,23 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+require "lspconfig".efm.setup {
+  init_options = {documentFormatting = true},
+  settings = {
+    rootMarkers = {".git/"},
+    languages = {
+      sql = {
+        {formatCommand = "sql-formatter", formatStdin = true}
+      },
+      proto = {
+        {formatCommand = "buf format", formatStdin = true}
+      },
+    }
+  },
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 require'lspconfig'.eslint.setup{
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd('BufWritePre', {
@@ -25,13 +42,6 @@ require'lspconfig'.eslint.setup{
       command = 'silent! EslintFixAll',
       group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
     })
-   --  client.server_capabilities.documentFormattingProvider = true
-   --  if client.server_capabilities.documentFormattingProvider then
-   --      -- vim.api.nvim_create_autocmd("BufWritePost", { callback = function() vim.lsp.buf.format({ async = true }) end })
-   --    vim.api.nvim_create_autocmd("BufWritePre", {
-   --      command =  "EslintFixAll"
-   --    })
-   --  end
   end,
   capabilities = capabilities,
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte" },
@@ -53,6 +63,10 @@ require'lspconfig'.gopls.setup{
   capabilities = capabilities,
 }
 require'lspconfig'.golangci_lint_ls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+require'lspconfig'.bufls.setup{
   on_attach = on_attach,
   capabilities = capabilities,
 }
@@ -84,20 +98,11 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = cmp.mapping(function(fallback)
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
       else
         fallback()
       end

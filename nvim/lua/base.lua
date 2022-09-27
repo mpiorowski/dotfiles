@@ -50,3 +50,7 @@ vim.opt.pumblend = 3
 vim.opt.background = 'dark'
 
 vim.cmd[[colorscheme tokyonight]]
+
+-- copilot
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_node_command = "~/.nvm/versions/node/v17.9.1/bin/node"
