@@ -13,8 +13,10 @@ keymap.set('n', '-', '<C-x>')
 -- keymap.set('n', 'dw', 'vb"_d')
 keymap.set('n', 'cd', '"_c$')
 
--- go word backwards
-keymap.set('n', '<S-e>', 'b')
+-- jump to words
+-- keymap.set('n', '<S-e>', 'b')
+keymap.set('n', 'e', 'w')
+keymap.set('n', 'w', 'ge')
 
 keymap.set('n', '<C-i>', '<C-I>')
 keymap.set('i', 'jk', '<Esc>')
