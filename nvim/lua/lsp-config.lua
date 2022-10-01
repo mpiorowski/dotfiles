@@ -1,11 +1,16 @@
 local opts = { noremap=true, silent=true }
 
+vim.keymap.set('n', '<S-k>', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<S-j>', vim.diagnostic.goto_next, opts)
+
 -- add to your shared on_attach callback
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   -- Mappings.
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  -- vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', '<C-h>', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
@@ -29,7 +34,7 @@ require "lspconfig".efm.setup {
       proto = {
         {formatCommand = "buf format", formatStdin = true}
       },
-    }
+    },
   },
   on_attach = on_attach,
   capabilities = capabilities,
@@ -98,7 +103,7 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
+    ['<C>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then

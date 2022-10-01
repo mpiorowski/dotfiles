@@ -39,7 +39,7 @@ vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.formatoptions:append { 'r' }
 
 -- Copy from clipboard
-vim.opt.clipboard:append { 'unnamedplus' }
+-- vim.opt.clipboard:append { 'unnamedplus' }
 
 -- highlights.lua
 vim.opt.cursorline = true

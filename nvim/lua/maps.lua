@@ -34,5 +34,8 @@ keymap.set('v', '<A-j>', ':m\'>+1<cr>gv=gv')
 keymap.set('v', '<A-k>', ':m\'<-2<cr>gv=gv')
 
 -- quickfix next/prev
-keymap.set('n', '<A-j>', ':cnext<cr>')
-keymap.set('n', '<A-k>', ':cprev<cr>')
+keymap.set('n', '<C-j>', ':cnext<cr>')
+keymap.set('n', '<C-k>', ':cprev<cr>')
+
+-- current window
+keymap.set('n', '<C-p>', ':on<cr>')

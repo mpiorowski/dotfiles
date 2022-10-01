@@ -8,8 +8,8 @@ saga.init_lsp_saga({
 })
 
 local opts = { noremap = true, silent = true}
-keymap('n', '<S-j>', '<Cmd>Lspsaga diagnostic_jump_next<cr>', otps)
-keymap('n', '<S-k>', '<Cmd>Lspsaga diagnostic_jump_prev<cr>', otps)
-keymap("n", "<C-k>", "<cmd>Lspsaga hover_doc<CR>", opts)
-keymap("n", "<C-j>", "<cmd>Lspsaga lsp_finder<CR>", opts)
-keymap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+-- keymap('n', '<S-j>', '<Cmd>Lspsaga diagnostic_jump_next<cr>', otps)
+-- keymap('n', '<S-k>', '<Cmd>Lspsaga diagnostic_jump_prev<cr>', otps)
+-- keymap("n", "<C-h>", "<cmd>Lspsaga hover_doc<CR>", opts)
+keymap("n", "<C-l>", "<cmd>Lspsaga lsp_finder<CR>", opts)
+-- keymap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
