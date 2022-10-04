@@ -8,15 +8,17 @@ keymap.set('n', '<C-s>', ':update<cr>')
 -- Increment/decrement
 keymap.set('n', '+', '<C-a>')
 keymap.set('n', '-', '<C-x>')
+keymap.set('v', '+', '<C-a>')
+keymap.set('v', '-', '<C-x>')
 
 -- Delete word backwards and forward without yank
 -- keymap.set('n', 'dw', 'vb"_d')
 keymap.set('n', 'cd', '"_c$')
 
 -- jump to words
--- keymap.set('n', '<S-e>', 'b')
-keymap.set('n', 'e', 'w')
-keymap.set('n', 'w', 'ge')
+keymap.set('n', 'w', 'b')
+-- keymap.set('n', 'e', 'w')
+-- keymap.set('n', 'w', 'ge')
 
 keymap.set('n', '<C-i>', '<C-I>')
 keymap.set('i', 'jk', '<Esc>')
@@ -29,6 +31,7 @@ keymap.set('n', '<leader>p', '"_p')
 
 -- yank to clipboard
 keymap.set('n', '<leader>y', '"+y')
+keymap.set('v', '<leader>y', '"+y')
 keymap.set('n', '<leader>Y', 'gg"+yG')
 
 -- move line up/down
