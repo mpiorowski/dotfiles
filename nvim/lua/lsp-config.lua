@@ -75,6 +75,10 @@ require'lspconfig'.bufls.setup{
   on_attach = on_attach,
   capabilities = capabilities,
 }
+require'lspconfig'.bashls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 -- Autocompletion setup
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
