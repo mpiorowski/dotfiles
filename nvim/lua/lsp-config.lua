@@ -1,4 +1,4 @@
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
 vim.keymap.set('n', '<S-k>', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', '<S-j>', vim.diagnostic.goto_next, opts)
@@ -7,14 +7,14 @@ vim.keymap.set('n', '<S-j>', vim.diagnostic.goto_next, opts)
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   -- Mappings.
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', '<C-h>', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<A-f>',function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', '<A-f>', function() vim.lsp.buf.format { async = true } end, bufopts)
   vim.keymap.set('n', '<S-CR>', vim.lsp.buf.code_action, bufopts)
 end
 
@@ -23,16 +23,16 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-require "lspconfig".efm.setup {
-  init_options = {documentFormatting = true},
+require 'lspconfig'.efm.setup {
+  init_options = { documentFormatting = true },
   settings = {
-    rootMarkers = {".git/"},
+    rootMarkers = { ".git/" },
     languages = {
       sql = {
-        {formatCommand = "sql-formatter", formatStdin = true}
+        { formatCommand = "sql-formatter", formatStdin = true }
       },
       proto = {
-        {formatCommand = "buf format", formatStdin = true}
+        { formatCommand = "buf format", formatStdin = true }
       },
     },
   },
@@ -40,7 +40,7 @@ require "lspconfig".efm.setup {
   capabilities = capabilities,
 }
 
-require'lspconfig'.eslint.setup{
+require 'lspconfig'.eslint.setup {
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd('BufWritePre', {
       pattern = { '*.tsx', '*.ts', '*.svelte' },
@@ -49,33 +49,38 @@ require'lspconfig'.eslint.setup{
     })
   end,
   capabilities = capabilities,
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx",
+    "vue", "svelte" },
 }
-require'lspconfig'.tsserver.setup{
+require 'lspconfig'.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-require'lspconfig'.svelte.setup{
+require 'lspconfig'.svelte.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-require'lspconfig'.tailwindcss.setup{
+require 'lspconfig'.tailwindcss.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-require'lspconfig'.gopls.setup{
+require 'lspconfig'.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-require'lspconfig'.golangci_lint_ls.setup{
+require 'lspconfig'.golangci_lint_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-require'lspconfig'.bufls.setup{
+require 'lspconfig'.bufls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-require'lspconfig'.bashls.setup{
+require 'lspconfig'.bashls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+require 'lspconfig'.sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
