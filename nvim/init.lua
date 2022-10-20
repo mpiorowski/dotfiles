@@ -1,6 +1,6 @@
+require('plugins')
 require('base')
 require('maps')
-require('plugins')
 require('telescope-config')
 require('treesitter-config')
 require('lsp-config')

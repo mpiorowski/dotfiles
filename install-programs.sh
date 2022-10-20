@@ -5,6 +5,7 @@ yay fish # 18
 chsh -s /usr/bin/fish
 
 yay neovim
+yay nerd-fonts-complete
 yay nvim-packer-git
 yay kitty
 yay tdrop
