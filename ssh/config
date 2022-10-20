@@ -2,7 +2,7 @@
 Host github.com
   HostName github.com
   User git
-  IdentityFile ~/ssh/priv
+  IdentityFile ~/.ssh/priv
   IdentitiesOnly yes
   AddKeysToAgent yes
 
@@ -10,6 +10,6 @@ Host github.com
 Host bitbucket.org
   HostName bitbucket.org
   User bit
-  IdentityFile ~/ssh/priv
+  IdentityFile ~/.ssh/priv
   IdentitiesOnly yes
   AddKeysToAgent yes
