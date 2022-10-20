@@ -15,7 +15,7 @@ telescope.setup{
     mappings = {
       n = {
         ['q'] = actions.close,
-        ["<S-Tab>"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ["<C-cr>"] = actions.send_selected_to_qflist,
       }
     },
   },

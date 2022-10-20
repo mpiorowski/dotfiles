@@ -29,7 +29,7 @@ require 'lspconfig'.efm.setup {
     rootMarkers = { ".git/" },
     languages = {
       sql = {
-        { formatCommand = "sql-formatter", formatStdin = true }
+        { formatCommand = "sql-formatter" }
       },
       proto = {
         { formatCommand = "buf format", formatStdin = true }
