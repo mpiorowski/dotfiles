@@ -7,9 +7,15 @@ chsh -s /usr/bin/fish
 yay neovim
 yay nerd-fonts-complete
 yay nvim-packer-git
+yay xclip
+yay ripgrep
+yay fd
+
 yay kitty
 yay tdrop
 yay sxhkd
+yay nodejs
+yay npm
 
 yay  docker
 sudo usermod -aG docker $USER

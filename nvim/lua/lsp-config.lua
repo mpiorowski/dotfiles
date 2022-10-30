@@ -29,10 +29,11 @@ require 'lspconfig'.efm.setup {
     rootMarkers = { ".git/" },
     languages = {
       sql = {
-        { formatCommand = "sql-formatter" }
+        { formatCommand = "sql-formatter", formatStdin = true }
       },
       proto = {
-        { formatCommand = "buf format", formatStdin = true }
+        { formatCommand = "buf format", formatStdin = true },
+        { lintCommand = "buf lint" }
       },
     },
   },
@@ -72,15 +73,7 @@ require 'lspconfig'.golangci_lint_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-require 'lspconfig'.bufls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
 require 'lspconfig'.bashls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-require 'lspconfig'.sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }

@@ -8,7 +8,8 @@ end
 telescope.setup{
   defaults = {
     file_ignore_patterns = {
-      ".git/"
+      ".git/",
+      "node_modules"
     },
     hijack_netrw = true,
     hidden = true,
