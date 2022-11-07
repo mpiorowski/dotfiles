@@ -20,6 +20,8 @@ packer.startup(function(use)
       }
     end
   }
+  -- leap
+  use 'ggandor/leap.nvim'
   -- copilot
   use 'github/copilot.vim'
   -- lualine
@@ -44,11 +46,6 @@ packer.startup(function(use)
       require('nvim-autopairs').setup {}
     end
   }
-  -- lspsaga
-  use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-  })
   -- which key
   use {
     "folke/which-key.nvim",
@@ -60,8 +57,6 @@ packer.startup(function(use)
   use { 'kyazdani42/nvim-web-devicons' }
   -- bufferline
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
-  -- eslint + prettier
-  use('jose-elias-alvarez/null-ls.nvim')
  -- mason
   use {
     "williamboman/mason.nvim",
