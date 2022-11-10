@@ -17,8 +17,6 @@ keymap.set('n', 'cd', '"_c$')
 
 -- jump to words
 keymap.set('n', 'w', 'b')
--- keymap.set('n', 'e', 'w')
--- keymap.set('n', 'w', 'ge')
 
 keymap.set('n', '<C-i>', '<C-I>')
 keymap.set('i', 'jk', '<Esc>')
@@ -33,6 +31,10 @@ keymap.set('n', '<leader>p', '"_p')
 keymap.set('n', '<leader>y', '"+y')
 keymap.set('v', '<leader>y', '"+y')
 keymap.set('n', '<leader>Y', 'gg"+yG')
+
+-- paste from 0 register
+keymap.set('n', '<leader>p', '"0p')
+keymap.set('v', '<leader>p', '"0p')
 
 -- move line up/down
 keymap.set('v', '<A-j>', ':m\'>+1<cr>gv=gv')

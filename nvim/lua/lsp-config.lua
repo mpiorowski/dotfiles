@@ -31,10 +31,6 @@ require 'lspconfig'.efm.setup {
       sql = {
         { formatCommand = "sql-formatter", formatStdin = true }
       },
-      proto = {
-        { formatCommand = "buf format", formatStdin = true },
-        { lintCommand = "buf lint" }
-      },
     },
   },
   on_attach = on_attach,
@@ -73,7 +69,7 @@ require 'lspconfig'.golangci_lint_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-require 'lspconfig'.bashls.setup {
+require 'lspconfig'.bufls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
