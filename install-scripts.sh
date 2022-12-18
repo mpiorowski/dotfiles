@@ -1,10 +1,5 @@
 # github
 ln -s -f ~/projects/dotfiles/.gitconfig ~/.gitconfig
-ln -s -f ~/projects/dotfiles/ssh/config ~/.ssh/config
-cp ~/projects/dotfiles/ssh/priv ~/.ssh/priv
-cp ~/projects/dotfiles/ssh/priv.pub ~/.ssh/priv.pub
-chmod 600 ~/.ssh/priv
-chmod 600 ~/.ssh/priv.pub
 
 # nvim
 ln -s -f ~/projects/dotfiles/nvim ~/.config
