@@ -9,11 +9,6 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', '<C-h>', vim.lsp.buf.hover, bufopts)
-  -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  -- vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
-  -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<A-f>', function() vim.lsp.buf.format { async = true } end, bufopts)
   vim.keymap.set('n', '<S-CR>', vim.lsp.buf.code_action, bufopts)
 end
@@ -23,6 +18,12 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+
+local prettierd = {
+  formatCommand = "prettierd ${INPUT}",
+  formatStdin = true
+}
+
 require 'lspconfig'.efm.setup {
   init_options = { documentFormatting = true },
   settings = {
@@ -31,6 +32,9 @@ require 'lspconfig'.efm.setup {
       sql = {
         { formatCommand = "sql-formatter", formatStdin = true }
       },
+      typescript = { prettierd },
+      typescriptreact = { prettierd },
+      svg = { prettierd },
     },
   },
   on_attach = on_attach,
@@ -40,14 +44,13 @@ require 'lspconfig'.efm.setup {
 require 'lspconfig'.eslint.setup {
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd('BufWritePre', {
-      pattern = { '*.tsx', '*.ts', '*.svelte' },
+      pattern = { '*.tsx', '*.ts' },
       command = 'silent! EslintFixAll',
       group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
     })
   end,
   capabilities = capabilities,
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx",
-    "vue", "svelte" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
 }
 require 'lspconfig'.tsserver.setup {
   on_attach = on_attach,
