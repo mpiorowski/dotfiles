@@ -11,21 +11,21 @@ telescope.setup{
             ".git/",
             "node_modules"
         },
-        hijack_netrw = true,
         mappings = {
             n = {
                 ['q'] = actions.close,
-                ["<C-cr>"] = actions.send_selected_to_qflist,
+                ["<C-cr>"] = actions.send_selected_to_qflist 
             }
         },
     },
     extensions = {
         file_browser = {
             hijack_netrw = true,
-            hidden = true,
-            no_ignore = true,
             initial_mode = "normal",
             all_previewer = true,
+            hidden = true,
+            no_ignore = true,
+            respect_gitignore = false,
             path = "%:p:h",
             cwd = telescope_buffer_dir(),
             mappings = {
@@ -50,7 +50,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set('n', 'gf', '<cmd>lua require("telescope.builtin").find_files({ no_ignore = false, hidden = true })<cr>', opts)
 -- vim.keymap.set('n', 'gf', '<cmd>lua require("telescope.builtin").git_files()<cr>', opts)
 vim.keymap.set('n', 'gt', '<cmd>lua require("telescope.builtin").lsp_type_definitions()<cr>', opts)
-vim.keymap.set('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>', opts)
+vim.keymap.set('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references({initial_mode = "normal"})<cr>', opts)
 vim.keymap.set('n', 'gv', '<cmd>lua require("telescope.builtin").live_grep({ hidden = true })<cr>', opts)
 vim.keymap.set('n', 'gb', '<cmd>lua require("telescope").extensions.file_browser.file_browser()<cr>', opts)
 vim.keymap.set('n', 'gy', '<cmd>lua require("telescope.builtin").buffers({initial_mode = "normal"})<cr>', opts)
