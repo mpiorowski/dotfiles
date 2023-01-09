@@ -18,5 +18,4 @@ yay slack-desktop
 yay visual-studio-code-bin
 yay steam
 yay lutris
-
 yay wine-staging
