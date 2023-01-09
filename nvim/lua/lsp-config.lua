@@ -9,7 +9,7 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', '<C-h>', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', '<A-f>', function() vim.lsp.buf.format { async = true } end, bufopts)
+  -- vim.keymap.set('n', '<A-f>', function() vim.lsp.buf.format { async = true } end, bufopts)
   vim.keymap.set('n', '<S-CR>', vim.lsp.buf.code_action, bufopts)
 end
 

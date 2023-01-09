@@ -2,6 +2,9 @@ local keymap = vim.keymap
 
 vim.g.mapleader = " "
 
+-- format
+vim.keymap.set('n', '<A-f>', function() vim.lsp.buf.format() end)
+
 -- update
 keymap.set('n', '<C-s>', ':update<cr>')
 
