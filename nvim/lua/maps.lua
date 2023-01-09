@@ -5,6 +5,9 @@ vim.g.mapleader = " "
 -- format
 vim.keymap.set('n', '<A-f>', function() vim.lsp.buf.format() end)
 
+-- delete all buffers
+vim.keymap.set('n', 'gY', ':%bd|e#<cr>' )
+
 -- update
 keymap.set('n', '<C-s>', ':update<cr>')
 
