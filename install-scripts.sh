@@ -9,6 +9,7 @@ ln -s -f ~/projects/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
 # tdrop + sxhkd
 ln -s -f ~/projects/dotfiles/sxhkd ~/.config
+mkdir /home/mat/.config/autostart/
 ln -s -f ~/projects/dotfiles/autostart/sxhkd.desktop ~/.config/autostart/sxhkd.desktop
 
 
