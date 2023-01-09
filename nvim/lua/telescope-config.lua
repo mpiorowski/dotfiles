@@ -14,7 +14,7 @@ telescope.setup{
         mappings = {
             n = {
                 ['q'] = actions.close,
-                ["<C-cr>"] = actions.send_selected_to_qflist 
+                ["<S-cr>"] = actions.send_selected_to_qflist,
             }
         },
     },
@@ -29,17 +29,11 @@ telescope.setup{
             path = "%:p:h",
             cwd = telescope_buffer_dir(),
             mappings = {
-                ['i'] = {
-                    ['<C-w>'] = function() vim.cmd('normal vbd') end,
-                },
                 ['n'] = {
                     ['N'] = fb_actions.create,
                     ['R'] = fb_actions.rename,
                     ['D'] = fb_actions.remove,
                     ['h'] = fb_actions.goto_parent_dir,
-                    ['/'] = function()
-                        vim.cmd('startinsert')
-                    end
                 }
             }
         }
@@ -47,6 +41,7 @@ telescope.setup{
 }
 telescope.load_extension("file_browser")
 local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<C-cr>', '<cmd>lua require("telescope.builtin").quickfix({initial_mode = "normal"})<cr>', opts)
 vim.keymap.set('n', 'gf', '<cmd>lua require("telescope.builtin").find_files({ no_ignore = false, hidden = true })<cr>', opts)
 -- vim.keymap.set('n', 'gf', '<cmd>lua require("telescope.builtin").git_files()<cr>', opts)
 vim.keymap.set('n', 'gt', '<cmd>lua require("telescope.builtin").lsp_type_definitions()<cr>', opts)

@@ -1,14 +1,14 @@
-require'nvim-web-devicons'.setup {
- default = true;
+require('nvim-web-devicons').setup {
+    color_icons = true;
+    default = true;
 }
 
-vim.opt.termguicolors = true
 require('bufferline').setup {
-  options = {
-    mode = "tabs", -- set to "tabs" to only show tabpages instead
-    color_icons = true,
-
-  }
+    options = {
+        mode = "tabs", -- set to "tabs" to only show tabpages instead
+        diagnostics = "nvim_lsp",
+        sort_by = "directory"
+    }
 }
 
 local opts = { noremap = true, silent = true}

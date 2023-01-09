@@ -17,10 +17,6 @@ keymap.set('n', '-', '<C-x>')
 keymap.set('v', '+', '<C-a>')
 keymap.set('v', '-', '<C-x>')
 
--- Delete word backwards and forward without yank
--- keymap.set('n', 'dw', 'vb"_d')
-keymap.set('n', 'cd', '"_c$')
-
 -- jump to words
 keymap.set('n', 'w', 'b')
 
@@ -31,7 +27,6 @@ keymap.set('n', ',', '@@')
 
 -- Do not yank
 keymap.set('n', 'x', '"_x')
-keymap.set('n', '<leader>p', '"_p')
 
 -- yank to clipboard
 keymap.set('n', '<leader>y', '"+y')
