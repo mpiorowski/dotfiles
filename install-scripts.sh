@@ -2,6 +2,7 @@
 ln -s -f ~/projects/dotfiles/.gitconfig ~/.gitconfig
 
 # kitty
+mkdir /home/mat/.config/kitty/
 ln -s -f ~/projects/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
 # tdrop + sxhkd
