@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
     }
     -- indent for treesiter
     use {
-        "lukas-reineke/indent-blankline.nvim", 
+        "lukas-reineke/indent-blankline.nvim",
         config = function()
             require('indent_blankline').setup {
                 space_char_blankline = " ",
@@ -60,7 +60,7 @@ return require('packer').startup(function(use)
             -- Snippets
             {'L3MON4D3/LuaSnip'},
             -- Snippet Collection (Optional)
-            {'rafamadriz/friendly-snippets'},
+            -- {'rafamadriz/friendly-snippets'},
         }
     }
 end)
