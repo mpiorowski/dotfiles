@@ -27,6 +27,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set('n', "<S-j>", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set('n', "<S-k>", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set('n', "<S-h>", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set('n', "<S-cr>", function() vim.lsp.buf.code_action() end, opts)
 
 end)
 

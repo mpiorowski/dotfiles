@@ -3,10 +3,10 @@ local keymap = vim.keymap
 vim.g.mapleader = " "
 
 -- format
-vim.keymap.set('n', '<A-f>', function() vim.lsp.buf.format() end)
+keymap.set('n', '<A-f>', function() vim.lsp.buf.format() end)
 
 -- delete all buffers
-vim.keymap.set('n', 'gY', ':%bd|e#<cr>' )
+keymap.set('n', 'gY', ':%bd|e#<cr>')
 
 -- update
 keymap.set('n', '<C-s>', ':update<cr>')
@@ -45,5 +45,7 @@ keymap.set('v', '<A-k>', ':m\'<-2<cr>gv=gv')
 keymap.set('n', '<C-j>', ':cnext<cr>')
 keymap.set('n', '<C-k>', ':cprev<cr>')
 
+-- previous window
+keymap.set('n', '<C-p>', '<C-^>')
 -- current window
-keymap.set('n', '<C-p>', ':on<cr>')
+-- keymap.set('n', '<S-p>', ':on<cr>')
