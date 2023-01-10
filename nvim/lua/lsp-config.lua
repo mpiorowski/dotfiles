@@ -13,6 +13,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<Tab>'] = cmp.config.disable
 })
 
 lsp.setup_nvim_cmp({
@@ -35,5 +36,5 @@ lsp.nvim_workspace()
 lsp.setup()
 
 vim.diagnostic.config({
-  virtual_text = true,
+    virtual_text = true,
 })
