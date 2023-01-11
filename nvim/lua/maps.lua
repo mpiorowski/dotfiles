@@ -48,4 +48,4 @@ keymap.set('n', '<C-k>', ':cprev<cr>')
 -- previous window
 keymap.set('n', '<C-p>', '<C-^>')
 -- current window
--- keymap.set('n', '<S-p>', ':on<cr>')
+keymap.set('n', '<C-y>', ':on<cr>')
